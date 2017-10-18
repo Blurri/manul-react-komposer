@@ -3,11 +3,13 @@ import {
   setStubbingMode as _setStubbingMode,
   stub as _stub,
 } from 'react-stubber';
+import _composeWithTracker from './composeWithTracker';
 import _compose from './compose';
 
 export const setStubbingMode = _setStubbingMode;
 export const stub = _stub;
 export const compose = _compose;
+export const composeWithTracker = _composeWithTracker;
 
 export function setDefaults(mainOptions = {}) {
   return function (dataLoader, otherOptions = {}) {
@@ -30,3 +32,4 @@ export function merge(...enhancers) {
 }
 
 export const composeAll = merge;
+

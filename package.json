@@ -1,6 +1,6 @@
 {
   "name": "manul-react-komposer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "fork of react-komposer -- Generic way to compose data containers for React.",
   "repository": {
     "type": "git",
