@@ -7,8 +7,6 @@ import { inheritStatics } from './utils';
 export default function compose(dataLoader, options = {}) {
   return function (Child) {
     const {
-      errorHandler = (err) => { throw err; },
-      loadingHandler = () => null,
       env = {},
       pure = false,
       propsToWatch = null, // Watch all the props.
@@ -107,11 +105,11 @@ export default function compose(dataLoader, options = {}) {
         const { data, error } = this.state;
 
         if (error) {
-          return errorHandler(error);
+          throw error;
         }
 
         if (!data) {
-          return loadingHandler();
+          return () => null;
         }
 
         const finalProps = {
