@@ -52,11 +52,7 @@ function compose(dataLoader) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   return function (Child) {
-    var _options$errorHandler = options.errorHandler,
-        errorHandler = _options$errorHandler === undefined ? function (err) {
-      throw err;
-    } : _options$errorHandler,
-        _options$loadingHandl = options.loadingHandler,
+    var _options$loadingHandl = options.loadingHandler,
         loadingHandler = _options$loadingHandl === undefined ? function () {
       return null;
     } : _options$loadingHandl,
@@ -183,7 +179,7 @@ function compose(dataLoader) {
 
 
           if (error) {
-            return errorHandler(error);
+            throw error;
           }
 
           if (!data) {
